@@ -1,0 +1,24 @@
+1.单例模式:直接上代码
+懒汉式变种,属于懒汉式的最好写法,保证了:延迟加载和线程安全
+public class SingletonLanhan{
+    public static SingletonLanhan singltonLanhan = null;
+	
+    public static SingletonLanhan getInstant(){
+	if(singletonLanhan == null){
+	    synchronization(SingletonLanhan.class){
+		if(singletonLanhan == null){
+		    singletonLanhan = new SingletonLanhan();
+		}
+	    }			
+	}
+	return singletonLanhan;	
+    }
+}
+
+2.观察者模式:首先观察者模式中会有观察者和被观察者,观察者可能会有多个,所以我们会把观察者定义为一个接口,谁要接收被观察者的改变事件就要实现观察者的接收通知的方法,被观察者会有添加移除观察者的方法和一个存放观察者的集合,在发生改变后去遍历观察者集合通知每一个观察者,对于安卓开发来说这种模式是用的比较多的是1对1的观察者模式,我们叫做接口回调,最常用的是给View设置点击事件,当View被点击后,会触发View的OnTouch方法,在OnTouchEvent的UP状态时会去回调View的OnClickLisentenr通知View被点击了.
+
+3.工厂模式:
+
+
+
+
